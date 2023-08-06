@@ -46,6 +46,11 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
+import vietrobotforIconURL from './vietrobot/vietrobot.png';
+import vietrobotforInsetIconURL from './vietrobot/vietrobot-small.svg';
+import vietrobotforConnectionIconURL from './vietrobot/vietrobot-illustration.svg';
+import vietrobotforConnectionSmallIconURL from './vietrobot/vietrobot-small.svg';
+
 export default [
     {
         name: (
