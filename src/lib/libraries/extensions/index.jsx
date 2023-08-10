@@ -322,5 +322,35 @@ export default [
             />
         ),
         helpLink: 'https://scratch.mit.edu/vernier'
+    },
+    {
+        name: 'Viet Robot Hardware Dev Kit',
+        extensionId: 'vietrobot',
+        collaborator: 'VietRobot',
+        iconURL: vietrobotforIconURL,
+        insetIconURL: vietrobotforInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Connect your projects with the world."
+                description="Description for the 'micro:bit' extension"
+                id="gui.extension.vietrobot.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: true,
+        useAutoScan: false,
+        connectionIconURL: vietrobotforConnectionIconURL,
+        connectionSmallIconURL: vietrobotforConnectionSmallIconURL,
+        connectingMessage: (
+            <FormattedMessage
+                defaultMessage="Connecting"
+                description="Message to help people connect to their VROne Hardware"
+                id="gui.extension.vietrobot.connectingMessage"
+            />
+        ),
+        helpLink: 'https://vietrobot.edu.vn/'
     }
 ];
