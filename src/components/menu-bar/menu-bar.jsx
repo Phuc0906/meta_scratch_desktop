@@ -638,7 +638,29 @@ class MenuBar extends React.Component {
                         <FormattedMessage {...ariaMessages.tutorials} />
                     </div>
                     <Divider className={classNames(styles.divider)} />
-                    {this.props.canEditTitle ? (
+                    <div>
+                        {/* eslint-disable-next-line react/jsx-no-bind,no-console */}
+                        <button onClick={async () => {
+
+                            const device = await navigator.bluetooth.requestDevice({
+                                acceptAllDevices: true,
+                                optionalServices: [0xFFE0]
+                            });
+
+                            const server = await device.gatt.connect();
+                            const service = await server.getPrimaryService(0xFFE0); // Replace with your actual service identifier
+                            console.error(service);
+                            const characteristic = await service.getCharacteristic(0xFFE1);
+                            console.log(characteristic);
+                            const uint8Array = new Uint8Array([5, 0, 1, 0, 0, 1, 0]);
+                            console.log(uint8Array);
+                            for (let i = 0; i < 100; i++) {
+                                await characteristic.writeValue(uint8Array);
+                            }
+                        }}
+                        >Connect Bluetooth</button>
+                    </div>
+                    {/* {this.props.canEditTitle ? (
                         <div className={classNames(styles.menuBarItem, styles.growable)}>
                             <MenuBarItemTooltip
                                 enable
@@ -657,7 +679,7 @@ class MenuBar extends React.Component {
                             userId={this.props.authorId}
                             username={this.props.authorUsername}
                         />
-                    ) : null)}
+                    ) : null)} */}
                     <div className={classNames(styles.menuBarItem)}>
                         {this.props.canShare ? (
                             (this.props.isShowingProject || this.props.isUpdating) && (
