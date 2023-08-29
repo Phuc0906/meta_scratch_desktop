@@ -46,10 +46,10 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
-import vietrobotforIconURL from './vietrobot/vietrobot.png';
-import vietrobotforInsetIconURL from './vietrobot/vietrobot-small.svg';
-import vietrobotforConnectionIconURL from './vietrobot/vietrobot-illustration.svg';
-import vietrobotforConnectionSmallIconURL from './vietrobot/vietrobot-small.svg';
+import vietrobotforIconURL from './vietrobot/sb-logo-title.png';
+import vietrobotforInsetIconURL from './vietrobot/sb-logo.svg';
+import vietrobotforConnectionIconURL from './vietrobot/sb-logo.svg';
+import vietrobotforConnectionSmallIconURL from './vietrobot/sb-logo.svg';
 
 export default [
     {
@@ -263,37 +263,6 @@ export default [
         helpLink: 'https://scratch.mit.edu/boost'
     },
     {
-        name: 'LEGO Education WeDo 2.0',
-        extensionId: 'wedo2',
-        collaborator: 'LEGO',
-        iconURL: wedo2IconURL,
-        insetIconURL: wedo2InsetIconURL,
-        description: (
-            <FormattedMessage
-                defaultMessage="Build with motors and sensors."
-                description="Description for the 'LEGO WeDo 2.0' extension"
-                id="gui.extension.wedo2.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        bluetoothRequired: true,
-        internetConnectionRequired: true,
-        launchPeripheralConnectionFlow: true,
-        useAutoScan: true,
-        connectionIconURL: wedo2ConnectionIconURL,
-        connectionSmallIconURL: wedo2ConnectionSmallIconURL,
-        connectionTipIconURL: wedo2ConnectionTipIconURL,
-        connectingMessage: (
-            <FormattedMessage
-                defaultMessage="Connecting"
-                description="Message to help people connect to their WeDo."
-                id="gui.extension.wedo2.connectingMessage"
-            />
-        ),
-        helpLink: 'https://scratch.mit.edu/wedo'
-    },
-    {
         name: 'Go Direct Force & Acceleration',
         extensionId: 'gdxfor',
         collaborator: 'Vernier',
@@ -324,9 +293,9 @@ export default [
         helpLink: 'https://scratch.mit.edu/vernier'
     },
     {
-        name: 'Viet Robot Hardware Dev Kit',
+        name: 'Science Box Hardware Dev Kit',
         extensionId: 'vietrobot',
-        collaborator: 'VietRobot',
+        collaborator: 'ScienceBox',
         iconURL: vietrobotforIconURL,
         insetIconURL: vietrobotforInsetIconURL,
         description: (
@@ -347,7 +316,7 @@ export default [
         connectingMessage: (
             <FormattedMessage
                 defaultMessage="Connecting"
-                description="Message to help people connect to their VROne Hardware"
+                description="Message to help people connect to their Science Box Hardware"
                 id="gui.extension.vietrobot.connectingMessage"
             />
         ),
