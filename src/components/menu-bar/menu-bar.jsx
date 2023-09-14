@@ -647,9 +647,21 @@ class MenuBar extends React.Component {
                                 optionalServices: [0xFFE0]
                             });
 
+                            //ohg5MLpAsAX8XfRxJxdskA==
+                            //CC41-A
+
+                            // const device = await navigator.bluetooth.requestDevice({
+                            //     filters: [{ name: 'CC41-A' }]
+                            // });
+
+
+
+                            console.log(typeof device);
+                            console.log(device.name);
+
                             const server = await device.gatt.connect();
                             const service = await server.getPrimaryService(0xFFE0); // Replace with your actual service identifier
-                            console.error(service);
+                            console.log(service);
                             const characteristic = await service.getCharacteristic(0xFFE1);
                             console.log(characteristic);
                             const uint8Array = new Uint8Array([5, 0, 1, 0, 0, 1, 0]);

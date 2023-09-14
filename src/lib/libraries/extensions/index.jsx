@@ -309,17 +309,17 @@ export default [
         disabled: false,
         bluetoothRequired: true,
         internetConnectionRequired: true,
-        launchPeripheralConnectionFlow: true,
+        // launchPeripheralConnectionFlow: true,
         useAutoScan: false,
         connectionIconURL: vietrobotforConnectionIconURL,
         connectionSmallIconURL: vietrobotforConnectionSmallIconURL,
-        connectingMessage: (
-            <FormattedMessage
-                defaultMessage="Connecting"
-                description="Message to help people connect to their Science Box Hardware"
-                id="gui.extension.vietrobot.connectingMessage"
-            />
-        ),
+        // connectingMessage: (
+        //     <FormattedMessage
+        //         defaultMessage="Connecting"
+        //         description="Message to help people connect to their Science Box Hardware"
+        //         id="gui.extension.vietrobot.connectingMessage"
+        //     />
+        // ),
         helpLink: 'https://vietrobot.edu.vn/'
     }
 ];
