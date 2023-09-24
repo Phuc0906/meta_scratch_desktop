@@ -84,7 +84,7 @@ import dropdownCaret from './dropdown-caret.svg';
 import languageIcon from '../language-selector/language-icon.svg';
 import aboutIcon from './icon--about.svg';
 
-import scratchLogo from './scratch-logo.svg';
+import scratchLogo from './sb-logo.svg';
 import ninetiesLogo from './nineties_logo.svg';
 import catLogo from './cat_logo.svg';
 import prehistoricLogo from './prehistoric-logo.svg';
@@ -638,7 +638,41 @@ class MenuBar extends React.Component {
                         <FormattedMessage {...ariaMessages.tutorials} />
                     </div>
                     <Divider className={classNames(styles.divider)} />
-                    {this.props.canEditTitle ? (
+                    <div>
+                        {/* eslint-disable-next-line react/jsx-no-bind,no-console */}
+                        <button onClick={async () => {
+
+                            const device = await navigator.bluetooth.requestDevice({
+                                acceptAllDevices: true,
+                                optionalServices: [0xFFE0]
+                            });
+
+                            //ohg5MLpAsAX8XfRxJxdskA==
+                            //CC41-A
+
+                            // const device = await navigator.bluetooth.requestDevice({
+                            //     filters: [{ name: 'CC41-A' }]
+                            // });
+
+
+
+                            console.log(typeof device);
+                            console.log(device.name);
+
+                            const server = await device.gatt.connect();
+                            const service = await server.getPrimaryService(0xFFE0); // Replace with your actual service identifier
+                            console.log(service);
+                            const characteristic = await service.getCharacteristic(0xFFE1);
+                            console.log(characteristic);
+                            const uint8Array = new Uint8Array([5, 0, 1, 0, 0, 1, 0]);
+                            console.log(uint8Array);
+                            for (let i = 0; i < 100; i++) {
+                                await characteristic.writeValue(uint8Array);
+                            }
+                        }}
+                        >Connect Bluetooth</button>
+                    </div>
+                    {/* {this.props.canEditTitle ? (
                         <div className={classNames(styles.menuBarItem, styles.growable)}>
                             <MenuBarItemTooltip
                                 enable
@@ -657,7 +691,7 @@ class MenuBar extends React.Component {
                             userId={this.props.authorId}
                             username={this.props.authorUsername}
                         />
-                    ) : null)}
+                    ) : null)} */}
                     <div className={classNames(styles.menuBarItem)}>
                         {this.props.canShare ? (
                             (this.props.isShowingProject || this.props.isUpdating) && (
