@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import bindAll from 'lodash.bindall';
 import bowser from 'bowser';
 import React from 'react';
+import {bleDevice, setBleDevice} from 'scratch-vm/src/util/meta_bt'
 
 import VM from 'scratch-vm';
 
@@ -647,28 +648,11 @@ class MenuBar extends React.Component {
                                 optionalServices: [0xFFE0]
                             });
 
-                            //ohg5MLpAsAX8XfRxJxdskA==
-                            //CC41-A
-
-                            // const device = await navigator.bluetooth.requestDevice({
-                            //     filters: [{ name: 'CC41-A' }]
-                            // });
-
-
-
-                            console.log(typeof device);
-                            console.log(device.name);
-
                             const server = await device.gatt.connect();
                             const service = await server.getPrimaryService(0xFFE0); // Replace with your actual service identifier
                             console.log(service);
-                            const characteristic = await service.getCharacteristic(0xFFE1);
-                            console.log(characteristic);
-                            const uint8Array = new Uint8Array([5, 0, 1, 0, 0, 1, 0]);
-                            console.log(uint8Array);
-                            for (let i = 0; i < 100; i++) {
-                                await characteristic.writeValue(uint8Array);
-                            }
+                            const tmpDevice = await service.getCharacteristic(0xFFE1);
+                            setBleDevice(tmpDevice);
                         }}
                         >Connect Bluetooth</button>
                     </div>
