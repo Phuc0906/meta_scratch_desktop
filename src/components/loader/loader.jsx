@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import topBlock from './top-block.svg';
 import middleBlock from './middle-block.svg';
 import bottomBlock from './bottom-block.svg';
+import webLogo from './web_logo.svg';
 const messages = [
     {
         message: (
@@ -156,15 +157,15 @@ class LoaderComponent extends React.Component {
                     <div className={styles.blockAnimation}>
                         <img
                             className={styles.topBlock}
-                            src={topBlock}
+                            src={webLogo}
                         />
                         <img
                             className={styles.middleBlock}
-                            src={middleBlock}
+                            src={webLogo}
                         />
                         <img
                             className={styles.bottomBlock}
-                            src={bottomBlock}
+                            src={webLogo}
                         />
                     </div>
                     <div className={styles.title}>

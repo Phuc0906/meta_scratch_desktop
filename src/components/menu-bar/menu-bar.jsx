@@ -7,6 +7,8 @@ import bindAll from 'lodash.bindall';
 import bowser from 'bowser';
 import React from 'react';
 import {bleDevice, setBleDevice} from 'scratch-vm/src/util/meta_bt'
+import bluetoothConnected from './bluetooth.png'
+import bluetoothDisconnected from './mobile.png'
 
 import VM from 'scratch-vm';
 
@@ -85,7 +87,7 @@ import dropdownCaret from './dropdown-caret.svg';
 import languageIcon from '../language-selector/language-icon.svg';
 import aboutIcon from './icon--about.svg';
 
-import scratchLogo from './sb-logo.svg';
+import scratchLogo from './Logo1.svg';
 import ninetiesLogo from './nineties_logo.svg';
 import catLogo from './cat_logo.svg';
 import prehistoricLogo from './prehistoric-logo.svg';
@@ -641,10 +643,18 @@ class MenuBar extends React.Component {
                     <Divider className={classNames(styles.divider)} />
                     <div>
                         {/* eslint-disable-next-line react/jsx-no-bind,no-console */}
-                        <button onClick={async () => {
+                        <button style={{background: 'transparent', 
+                                        border: 'none', 
+                                        transition: 'transform 0.3s ease', // Add transition for smooth scaling effect
+                                        ":hover": {
+                                        transform: 'scale(1.2)', // Scale up the button by 20% on hover
+                                        }}
+                                        } onClick={async () => {
 
                             const device = await navigator.bluetooth.requestDevice({
-                                acceptAllDevices: true,
+                                filters: [
+                                    {name: "CC41-A"}
+                                ],
                                 optionalServices: [0xFFE0]
                             });
 
@@ -654,28 +664,23 @@ class MenuBar extends React.Component {
                             const tmpDevice = await service.getCharacteristic(0xFFE1);
                             setBleDevice(tmpDevice);
                         }}
-                        >Connect Bluetooth</button>
+                        ><img width={30} src={bluetoothConnected} alt='Connect to bluetooth' /></button>
                     </div>
-                    {/* {this.props.canEditTitle ? (
-                        <div className={classNames(styles.menuBarItem, styles.growable)}>
-                            <MenuBarItemTooltip
-                                enable
-                                id="title-field"
-                            >
-                                <ProjectTitleInput
-                                    className={classNames(styles.titleFieldGrowable)}
-                                />
-                            </MenuBarItemTooltip>
-                        </div>
-                    ) : ((this.props.authorUsername && this.props.authorUsername !== this.props.username) ? (
-                        <AuthorInfo
-                            className={styles.authorInfo}
-                            imageUrl={this.props.authorThumbnailUrl}
-                            projectTitle={this.props.projectTitle}
-                            userId={this.props.authorId}
-                            username={this.props.authorUsername}
-                        />
-                    ) : null)} */}
+                    <div>
+                        {/* eslint-disable-next-line react/jsx-no-bind,no-console */}
+                        <button style={{background: 'transparent', 
+                                        border: 'none', 
+                                        transition: 'transform 0.3s ease', // Add transition for smooth scaling effect
+                                        ":hover": {
+                                        transform: 'scale(1.2)', // Scale up the button by 20% on hover
+                                        }}
+                                        } onClick={async () => {
+
+                            
+                        }}
+                        ><img width={30} src={bluetoothDisconnected} alt='Connect to bluetooth' /></button>
+                    </div>
+                
                     <div className={classNames(styles.menuBarItem)}>
                         {this.props.canShare ? (
                             (this.props.isShowingProject || this.props.isUpdating) && (

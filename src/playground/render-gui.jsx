@@ -8,7 +8,7 @@ import HashParserHOC from '../lib/hash-parser-hoc.jsx';
 import log from '../lib/log.js';
 
 const onClickLogo = () => {
-    window.location = 'https://vietrobot.edu.vn/';
+    window.location = 'https://metasquare.edu.vn/';
 };
 
 const handleTelemetryModalCancel = () => {
