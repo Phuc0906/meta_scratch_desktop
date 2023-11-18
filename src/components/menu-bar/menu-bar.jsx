@@ -653,7 +653,7 @@ class MenuBar extends React.Component {
 
                             const device = await navigator.bluetooth.requestDevice({
                                 filters: [
-                                    {name: "CC41-A"}
+                                    {services: [0xFFE0]}
                                 ],
                                 optionalServices: [0xFFE0]
                             });
