@@ -23,7 +23,7 @@ pipelines:
           script:
             - npm install
   branches:
-    GUI:
+    MEGATON_GUI:
       - parallel:
         - step:
             name: Build and Test
