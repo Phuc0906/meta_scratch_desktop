@@ -22,14 +22,6 @@ pipelines:
             - node
           script:
             - npm install
-      - step:
-          name: Lint the node package
-          script:
-            # Run your linter of choice here
-            - npm install eslint
-            - npx eslint src
-          caches:
-            - node
   branches:
     master:
       - parallel:
