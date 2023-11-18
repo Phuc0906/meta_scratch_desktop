@@ -46,10 +46,10 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
-import vietrobotforIconURL from './vietrobot/sb-logo-title.png';
-import vietrobotforInsetIconURL from './vietrobot/sb-logo.svg';
-import vietrobotforConnectionIconURL from './vietrobot/sb-logo.svg';
-import vietrobotforConnectionSmallIconURL from './vietrobot/sb-logo.svg';
+import vietrobotforIconURL from './vietrobot/Logo1.png';
+import vietrobotforInsetIconURL from './vietrobot/Logo1.svg';
+import vietrobotforConnectionIconURL from './vietrobot/Logo1.svg';
+import vietrobotforConnectionSmallIconURL from './vietrobot/Logo1.svg';
 
 export default [
     {
@@ -293,9 +293,9 @@ export default [
         helpLink: 'https://scratch.mit.edu/vernier'
     },
     {
-        name: 'Science Box Hardware Dev Kit',
+        name: 'Megaton Hardware Dev Kit',
         extensionId: 'vietrobot',
-        collaborator: 'ScienceBox',
+        collaborator: 'Megaton',
         iconURL: vietrobotforIconURL,
         insetIconURL: vietrobotforInsetIconURL,
         description: (
@@ -320,6 +320,6 @@ export default [
         //         id="gui.extension.vietrobot.connectingMessage"
         //     />
         // ),
-        helpLink: 'https://vietrobot.edu.vn/'
+        helpLink: 'https://metasquare.edu.vn/'
     }
 ];

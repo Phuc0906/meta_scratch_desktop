@@ -43,8 +43,13 @@
     opacity: 0;
 }
 .scratch-logo {
-    height:  2.0rem;
+    height: 3.0rem;
     vertical-align: middle;
+}
+
+.bluetooth-button {
+    background-color: transparent;
+    border: none;
 }
 
 .scratch-logo.clickable {
@@ -81,6 +86,10 @@
 
 .menu-bar-item.hoverable {
     cursor: pointer;
+}
+
+.menu-bar-item.bluetooth-button {
+    background-color: transparent;
 }
 
 .menu-bar-item.active,
