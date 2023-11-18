@@ -23,7 +23,7 @@ pipelines:
           script:
             - npm install
   branches:
-    master:
+    GUI:
       - parallel:
         - step:
             name: Build and Test
