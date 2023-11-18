@@ -55,9 +55,6 @@ pipelines:
                 AWS_DEFAULT_REGION: US-EAST-1
                 S3_BUCKET: 'megaton-scratch'
                 LOCAL_PATH: 'build'
-            # triggering a distribution invalidation to refresh the CDN caches
-            - pipe: atlassian/aws-cloudfront-invalidate:0.6.0
-              variables:
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
                 DISTRIBUTION_ID: '123xyz'
