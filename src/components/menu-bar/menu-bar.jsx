@@ -675,7 +675,9 @@ class MenuBar extends React.Component {
                                         transform: 'scale(1.2)', // Scale up the button by 20% on hover
                                         }}
                                         } onClick={async () => {
+                                            
 
+                                            
                             
                         }}
                         ><img width={30} src={bluetoothDisconnected} alt='Connect to bluetooth' /></button>
