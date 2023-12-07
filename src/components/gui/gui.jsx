@@ -52,6 +52,8 @@ const messages = defineMessages({
 // Assume that it doesn't change for a session.
 let isRendererSupported = null;
 
+
+
 const GUIComponent = props => {
     const {
         accountNavOpen,
@@ -342,7 +344,7 @@ const GUIComponent = props => {
                                 <Backpack host={backpackHost} />
                             ) : null}
                         </Box>
-
+                        
                         <Box className={classNames(styles.stageAndTargetWrapper, styles[stageSize])}>
                             <StageWrapper
                                 isFullScreen={isFullScreen}
@@ -351,6 +353,7 @@ const GUIComponent = props => {
                                 stageSize={stageSize}
                                 vm={vm}
                             />
+                            
                             <Box className={styles.targetWrapper}>
                                 <TargetPane
                                     stageSize={stageSize}

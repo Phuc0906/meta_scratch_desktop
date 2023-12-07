@@ -8,8 +8,15 @@ import {STAGE_DISPLAY_SIZES} from '../../lib/layout-constants.js';
 import StageHeader from '../../containers/stage-header.jsx';
 import Stage from '../../containers/stage.jsx';
 import Loader from '../loader/loader.jsx';
+import Webcam from 'react-webcam'
 
 import styles from './stage-wrapper.css';
+
+const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "user"
+  };
 
 const StageWrapperComponent = function (props) {
     const {
@@ -37,12 +44,23 @@ const StageWrapperComponent = function (props) {
             </Box>
             <Box className={styles.stageCanvasWrapper}>
                 {
-                    isRendererSupported ?
+                    !isRendererSupported ?
                         <Stage
                             stageSize={stageSize}
                             vm={vm}
                         /> :
-                        null
+                        <Box>
+                            <Webcam
+                                style={{padding: '0px'}}
+                                    audio={false}
+                                    height={380}
+                                    screenshotFormat="image/jpeg"
+                                    width={580}
+                                    videoConstraints={videoConstraints}
+                                >
+                                
+                            </Webcam>
+                        </Box>
                 }
             </Box>
             {loading ? (
