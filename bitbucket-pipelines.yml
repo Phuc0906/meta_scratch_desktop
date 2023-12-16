@@ -31,7 +31,7 @@ pipelines:
               - node
             script:
               - npm install --save-dev
-              - npm install --save-dev 'scratch-vm@bitbucket:trinhcongson34/msk-scratch-vm#develop'
+              - npm install --save-dev 'scratch-vm@bitbucket:trinhcongson34/msk-scratch-vm#MEGATON-VM'
               - npm run build
             artifacts:
               - build/**
