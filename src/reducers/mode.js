@@ -1,11 +1,13 @@
 const SET_FULL_SCREEN = 'scratch-gui/mode/SET_FULL_SCREEN';
 const SET_PLAYER = 'scratch-gui/mode/SET_PLAYER';
+const SET_CAMERA = 'scratch-gui/mode/SET_CAMERA';
 
 const initialState = {
     showBranding: false,
     isFullScreen: false,
     isPlayerOnly: false,
-    hasEverEnteredEditor: true
+    hasEverEnteredEditor: true,
+    isOpenCamera: false
 };
 
 const reducer = function (state, action) {
@@ -15,6 +17,10 @@ const reducer = function (state, action) {
         return Object.assign({}, state, {
             isFullScreen: action.isFullScreen
         });
+    case SET_CAMERA:
+        return Object.assign({}, state, {
+            isOpenCamera: action.isOpenCamera
+        })
     case SET_PLAYER:
         return Object.assign({}, state, {
             isPlayerOnly: action.isPlayerOnly,
@@ -24,6 +30,7 @@ const reducer = function (state, action) {
         return state;
     }
 };
+
 
 const setFullScreen = function (isFullScreen) {
     return {
@@ -38,9 +45,19 @@ const setPlayer = function (isPlayerOnly) {
     };
 };
 
+const setCamera = function (isOpenCamera) {
+    console.log("On Press Setting Camera: " + isOpenCamera);
+    
+    return {
+        type: SET_CAMERA,
+        isOpenCamera: isOpenCamera
+    }
+}
+
 export {
     reducer as default,
     initialState as modeInitialState,
     setFullScreen,
-    setPlayer
+    setPlayer,
+    setCamera
 };

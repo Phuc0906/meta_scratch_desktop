@@ -86,6 +86,7 @@ const GUIComponent = props => {
         intl,
         isCreating,
         isFullScreen,
+        isOpenCamera,
         isPlayerOnly,
         isRtl,
         isShared,
@@ -349,6 +350,7 @@ const GUIComponent = props => {
                             <StageWrapper
                                 isFullScreen={isFullScreen}
                                 isRendererSupported={isRendererSupported}
+                                isOpenCamera={isOpenCamera}
                                 isRtl={isRtl}
                                 stageSize={stageSize}
                                 vm={vm}
@@ -398,6 +400,7 @@ GUIComponent.propTypes = {
     intl: intlShape.isRequired,
     isCreating: PropTypes.bool,
     isFullScreen: PropTypes.bool,
+    isOpenCamera: PropTypes.bool.isRequired,
     isPlayerOnly: PropTypes.bool,
     isRtl: PropTypes.bool,
     isShared: PropTypes.bool,

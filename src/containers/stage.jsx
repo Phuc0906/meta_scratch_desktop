@@ -421,6 +421,7 @@ class Stage extends React.Component {
                 onQuestionAnswered={this.handleQuestionAnswered}
                 {...props}
             />
+            
         );
     }
 }
@@ -429,6 +430,7 @@ Stage.propTypes = {
     isColorPicking: PropTypes.bool,
     isFullScreen: PropTypes.bool.isRequired,
     isStarted: PropTypes.bool,
+    isOpenCamera: PropTypes.bool.isRequired,
     micIndicator: PropTypes.bool,
     onActivateColorPicker: PropTypes.func,
     onDeactivateColorPicker: PropTypes.func,
@@ -445,6 +447,7 @@ const mapStateToProps = state => ({
     isColorPicking: state.scratchGui.colorPicker.active,
     isFullScreen: state.scratchGui.mode.isFullScreen,
     isStarted: state.scratchGui.vmStatus.started,
+    isOpenCamera: state.scratchGui.mode.isOpenCamera,
     micIndicator: state.scratchGui.micIndicator,
     // Do not use editor drag style in fullscreen or player mode.
     useEditorDragStyle: !(state.scratchGui.mode.isFullScreen || state.scratchGui.mode.isPlayerOnly)

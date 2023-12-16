@@ -8,6 +8,7 @@ const StageWrapper = props => <StageWrapperComponent {...props} />;
 
 StageWrapper.propTypes = {
     isRendererSupported: PropTypes.bool.isRequired,
+    isOpenCamera: PropTypes.bool.isRequired,
     stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
     vm: PropTypes.instanceOf(VM).isRequired
 };

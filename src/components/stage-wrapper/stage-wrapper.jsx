@@ -8,19 +8,19 @@ import {STAGE_DISPLAY_SIZES} from '../../lib/layout-constants.js';
 import StageHeader from '../../containers/stage-header.jsx';
 import Stage from '../../containers/stage.jsx';
 import Loader from '../loader/loader.jsx';
-import Webcam from 'react-webcam'
+
+import MegatonCamera from './MegatonCamera.js';
 
 import styles from './stage-wrapper.css';
 
-const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: "user"
-  };
+
 
 const StageWrapperComponent = function (props) {
+    
+
     const {
         isFullScreen,
+        isOpenCamera,
         isRtl,
         isRendererSupported,
         loading,
@@ -44,22 +44,13 @@ const StageWrapperComponent = function (props) {
             </Box>
             <Box className={styles.stageCanvasWrapper}>
                 {
-                    !isRendererSupported ?
+                    !isOpenCamera ?
                         <Stage
                             stageSize={stageSize}
                             vm={vm}
                         /> :
                         <Box>
-                            <Webcam
-                                style={{padding: '0px'}}
-                                    audio={false}
-                                    height={380}
-                                    screenshotFormat="image/jpeg"
-                                    width={580}
-                                    videoConstraints={videoConstraints}
-                                >
-                                
-                            </Webcam>
+                            <MegatonCamera/>
                         </Box>
                 }
             </Box>
@@ -73,6 +64,7 @@ const StageWrapperComponent = function (props) {
 StageWrapperComponent.propTypes = {
     isFullScreen: PropTypes.bool,
     isRendererSupported: PropTypes.bool.isRequired,
+    isOpenCamera: PropTypes.bool.isRequired,
     isRtl: PropTypes.bool.isRequired,
     loading: PropTypes.bool,
     stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
