@@ -53,10 +53,6 @@ const messages = defineMessages({
     }
 });
 
-const settingCamera = () => {
-    console.log("Setting System Camera");
-}
-
 const StageHeaderComponent = function (props) {
     const {
         isFullScreen,

@@ -3,6 +3,7 @@ import Webcam from 'react-webcam';
 import { useRef, useEffect } from 'react';
 import * as tf from "@tensorflow/tfjs";
 import * as cocossd from "@tensorflow-models/coco-ssd";
+import {setNumberOfObject, setDetectedObjects} from 'scratch-vm/src/util/meta_bt'
 
 const drawRect = (detections, ctx) =>{
     // Loop through each prediction
@@ -71,7 +72,10 @@ const MegatonCamera = () => {
     
           // Draw mesh
           const ctx = canvasRef.current.getContext("2d");
-          drawRect(obj, ctx); 
+          drawRect(obj, ctx);
+          // console.log(obj); 
+          setDetectedObjects(obj);
+          setNumberOfObject(obj.length);
         }
       };
 
