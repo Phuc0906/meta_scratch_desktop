@@ -49,8 +49,8 @@ const StageWrapperComponent = function (props) {
                             stageSize={stageSize}
                             vm={vm}
                         /> :
-                        <Box>
-                            <MegatonCamera/>
+                        <Box width={480} height={360} >
+                            <MegatonCamera width={480} height={360}/>
                         </Box>
                 }
             </Box>

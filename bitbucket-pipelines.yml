@@ -59,3 +59,38 @@ pipelines:
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
                 DISTRIBUTION_ID: '123xyz'
+    MEGATON_CAMERA:
+      - parallel:
+        - step:
+            name: Build and Test
+            caches:
+              - node
+            script:
+              - npm install --save-dev
+              - npm install --save-dev 'scratch-vm@bitbucket:trinhcongson34/msk-scratch-vm#develop'
+              - npm run build
+            artifacts:
+              - build/**
+        - step:
+            name: Security Scan
+            script:
+              # Run a security scan for sensitive data.
+              # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
+              - pipe: atlassian/git-secrets-scan:0.5.1
+      - step:
+          name: Deploy to Production
+          deployment: Production
+          clone:
+            enabled: false
+          script:
+            # sync your files to S3
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: US-EAST-1
+                S3_BUCKET: 'megaton-test-bucket'
+                LOCAL_PATH: 'build'
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                DISTRIBUTION_ID: '123xyz'

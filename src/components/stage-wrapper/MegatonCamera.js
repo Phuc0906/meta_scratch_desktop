@@ -28,15 +28,17 @@ const drawRect = (detections, ctx) =>{
     });
   }
 
-const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: "user"
-  };
 
-const MegatonCamera = () => {
+
+const MegatonCamera = ({width, height}) => {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
+
+    const videoConstraints = {
+      width: 480,
+      height: 360,
+      facingMode: "user"
+    };
 
     const runCoco = async () => {
         const net = await cocossd.load();
@@ -84,14 +86,12 @@ const MegatonCamera = () => {
 
     
 
-    return <div style={{ position: "relative" }}>
+    return <div style={{ position: "relative", background: '#4C97FF', width: width, height: height }}>
         <Webcam
         ref={webcamRef}
-        style={{padding: '0px'}}
+        style={{padding: '0px', height: '100%', width: '100%'}}
         audio={false}
-        height={380}
         screenshotFormat="image/jpeg"
-        width={580}
         videoConstraints={videoConstraints}
     >
         </Webcam>
@@ -105,8 +105,8 @@ const MegatonCamera = () => {
             right: 0,
             textAlign: "center",
             zindex: 8,
-            width: 640,
-            height: 480,
+            width: '100%',
+            height: '100%',
           }}
         />
     </div>
