@@ -136,7 +136,7 @@ const StageHeaderComponent = function (props) {
                             />
                         </Button>
                     </div>
-                    <div>
+                    {/* <div>
                         <Button
                             className={classNames(
                                 styles.stageButton,
@@ -159,7 +159,7 @@ const StageHeaderComponent = function (props) {
                                 src={cameraIcon}
                             />
                         </Button>
-                    </div>
+                    </div> */}
                     <div>
                         <Button
                             className={classNames(

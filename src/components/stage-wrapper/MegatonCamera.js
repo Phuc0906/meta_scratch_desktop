@@ -68,6 +68,8 @@ const MegatonCamera = ({width, height}) => {
           // Set canvas height and width
           canvasRef.current.width = videoConstraints.width;
           canvasRef.current.height = videoConstraints.height;
+
+          console.log(video);
     
           // Make Detections
           const obj = await net.detect(video);

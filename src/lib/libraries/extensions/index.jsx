@@ -83,6 +83,28 @@ export default [
         helpLink: 'https://metasquare.edu.vn/'
     },
     {
+        name: 'Megaton Camera AI',
+        extensionId: 'megatonCamera',
+        collaborator: 'Megaton',
+        iconURL: vietrobotforIconURL,
+        insetIconURL: vietrobotforInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Connect your projects with the world."
+                description="Description for the 'micro:bit' extension"
+                id="gui.extension.megatonCamera.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+        useAutoScan: false,
+        connectionIconURL: vietrobotforConnectionIconURL,
+        connectionSmallIconURL: vietrobotforConnectionSmallIconURL,
+        helpLink: 'https://metasquare.edu.vn/'
+    },
+    {
         name: (
             <FormattedMessage
                 defaultMessage="Music"
