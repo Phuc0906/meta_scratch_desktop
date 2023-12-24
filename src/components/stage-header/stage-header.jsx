@@ -15,6 +15,7 @@ import fullScreenIcon from './icon--fullscreen.svg';
 import largeStageIcon from './icon--large-stage.svg';
 import smallStageIcon from './icon--small-stage.svg';
 import unFullScreenIcon from './icon--unfullscreen.svg';
+import cameraIcon from './camera.png'
 
 import scratchLogo from '../menu-bar/sb-logo.svg';
 import styles from './stage-header.css';
@@ -24,6 +25,11 @@ const messages = defineMessages({
         defaultMessage: 'Switch to large stage',
         description: 'Button to change stage size to large',
         id: 'gui.stageHeader.stageSizeLarge'
+    },
+    cameraModeMessage: {
+        defaultMessage: 'Switch to Camera',
+        description: 'Button to switch from canvas to camera',
+        id: 'gui.stageHeader.cameraSwitcher'
     },
     smallStageSizeMessage: {
         defaultMessage: 'Switch to small stage',
@@ -51,9 +57,12 @@ const StageHeaderComponent = function (props) {
     const {
         isFullScreen,
         isPlayerOnly,
+        isOpenCamera,
         onKeyPress,
         onSetStageLarge,
         onSetStageSmall,
+        onSetCameraOpen,
+        onSetCameraClose,
         onSetStageFull,
         onSetStageUnFull,
         showBranding,
@@ -68,12 +77,12 @@ const StageHeaderComponent = function (props) {
         const stageButton = showBranding ? (
             <div className={styles.embedScratchLogo}>
                 <a
-                    href="https://scratch.mit.edu"
+                    href="https://metasquare.edu.vn"
                     rel="noopener noreferrer"
                     target="_blank"
                 >
                     <img
-                        alt="Scratch"
+                        alt="Megaton"
                         src={scratchLogo}
                     />
                 </a>
@@ -127,6 +136,30 @@ const StageHeaderComponent = function (props) {
                             />
                         </Button>
                     </div>
+                    {/* <div>
+                        <Button
+                            className={classNames(
+                                styles.stageButton,
+                                styles.stageButtonLast,
+                                (isOpenCamera) ? null : styles.stageButtonToggledOff
+                            )}
+                            onClick={() => {
+                                console.log(isOpenCamera)
+                                if (!isOpenCamera) {
+                                    onSetCameraOpen();
+                                }else {
+                                    onSetCameraClose();
+                                }
+                            }}
+                        >
+                            <img
+                                alt={props.intl.formatMessage(messages.cameraModeMessage)}
+                                className={styles.stageButtonIcon}
+                                draggable={false}
+                                src={cameraIcon}
+                            />
+                        </Button>
+                    </div> */}
                     <div>
                         <Button
                             className={classNames(
@@ -189,6 +222,7 @@ StageHeaderComponent.propTypes = {
     onSetStageLarge: PropTypes.func.isRequired,
     onSetStageSmall: PropTypes.func.isRequired,
     onSetStageUnFull: PropTypes.func.isRequired,
+    onSetCamera: PropTypes.func.isRequired,
     showBranding: PropTypes.bool.isRequired,
     stageSizeMode: PropTypes.oneOf(Object.keys(STAGE_SIZE_MODES)),
     vm: PropTypes.instanceOf(VM).isRequired

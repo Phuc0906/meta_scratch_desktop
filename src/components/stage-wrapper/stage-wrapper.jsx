@@ -9,11 +9,18 @@ import StageHeader from '../../containers/stage-header.jsx';
 import Stage from '../../containers/stage.jsx';
 import Loader from '../loader/loader.jsx';
 
+import MegatonCamera from './MegatonCamera.js';
+
 import styles from './stage-wrapper.css';
 
+
+
 const StageWrapperComponent = function (props) {
+    
+
     const {
         isFullScreen,
+        isOpenCamera,
         isRtl,
         isRendererSupported,
         loading,
@@ -37,12 +44,14 @@ const StageWrapperComponent = function (props) {
             </Box>
             <Box className={styles.stageCanvasWrapper}>
                 {
-                    isRendererSupported ?
+                    !isOpenCamera ?
                         <Stage
                             stageSize={stageSize}
                             vm={vm}
                         /> :
-                        null
+                        <Box width={480} height={360} >
+                            <MegatonCamera width={480} height={360}/>
+                        </Box>
                 }
             </Box>
             {loading ? (
@@ -55,6 +64,7 @@ const StageWrapperComponent = function (props) {
 StageWrapperComponent.propTypes = {
     isFullScreen: PropTypes.bool,
     isRendererSupported: PropTypes.bool.isRequired,
+    isOpenCamera: PropTypes.bool.isRequired,
     isRtl: PropTypes.bool.isRequired,
     loading: PropTypes.bool,
     stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,

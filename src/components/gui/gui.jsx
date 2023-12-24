@@ -52,6 +52,8 @@ const messages = defineMessages({
 // Assume that it doesn't change for a session.
 let isRendererSupported = null;
 
+
+
 const GUIComponent = props => {
     const {
         accountNavOpen,
@@ -84,6 +86,7 @@ const GUIComponent = props => {
         intl,
         isCreating,
         isFullScreen,
+        isOpenCamera,
         isPlayerOnly,
         isRtl,
         isShared,
@@ -342,15 +345,17 @@ const GUIComponent = props => {
                                 <Backpack host={backpackHost} />
                             ) : null}
                         </Box>
-
+                        
                         <Box className={classNames(styles.stageAndTargetWrapper, styles[stageSize])}>
                             <StageWrapper
                                 isFullScreen={isFullScreen}
                                 isRendererSupported={isRendererSupported}
+                                isOpenCamera={isOpenCamera}
                                 isRtl={isRtl}
                                 stageSize={stageSize}
                                 vm={vm}
                             />
+                            
                             <Box className={styles.targetWrapper}>
                                 <TargetPane
                                     stageSize={stageSize}
@@ -395,6 +400,7 @@ GUIComponent.propTypes = {
     intl: intlShape.isRequired,
     isCreating: PropTypes.bool,
     isFullScreen: PropTypes.bool,
+    isOpenCamera: PropTypes.bool.isRequired,
     isPlayerOnly: PropTypes.bool,
     isRtl: PropTypes.bool,
     isShared: PropTypes.bool,

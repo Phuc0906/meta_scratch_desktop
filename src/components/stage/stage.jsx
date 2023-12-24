@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import Webcam from 'react-webcam'
 
 import Box from '../box/box.jsx';
 import DOMElementRenderer from '../../containers/dom-element-renderer.jsx';
@@ -14,12 +15,19 @@ import {STAGE_DISPLAY_SIZES} from '../../lib/layout-constants.js';
 import {getStageDimensions} from '../../lib/screen-utils.js';
 import styles from './stage.css';
 
+const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "user"
+  };
+
 const StageComponent = props => {
     const {
         canvas,
         dragRef,
         isColorPicking,
         isFullScreen,
+        isOpenCamera,
         isStarted,
         colorInfo,
         micIndicator,
@@ -60,6 +68,7 @@ const StageComponent = props => {
                         }}
                         {...boxProps}
                     />
+                    
                     <Box className={styles.monitorWrapper}>
                         <MonitorList
                             draggable={useEditorDragStyle}
@@ -140,6 +149,7 @@ StageComponent.propTypes = {
     isColorPicking: PropTypes.bool,
     isFullScreen: PropTypes.bool.isRequired,
     isStarted: PropTypes.bool,
+    isOpenCamera: PropTypes.bool.isRequired,
     micIndicator: PropTypes.bool,
     onDeactivateColorPicker: PropTypes.func,
     onDoubleClick: PropTypes.func,
