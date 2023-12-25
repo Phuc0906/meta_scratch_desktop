@@ -84,7 +84,7 @@ export default [
     },
     {
         name: 'Megaton Camera AI',
-        extensionId: 'megatonCamera',
+        extensionId: 'megatonaicamera',
         collaborator: 'Megaton',
         iconURL: vietrobotforIconURL,
         insetIconURL: vietrobotforInsetIconURL,
@@ -92,7 +92,7 @@ export default [
             <FormattedMessage
                 defaultMessage="Connect your projects with the world."
                 description="Description for the 'micro:bit' extension"
-                id="gui.extension.megatonCamera.description"
+                id="gui.extension.megatonaicamera.description"
             />
         ),
         featured: true,
