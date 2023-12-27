@@ -44,7 +44,6 @@ pipelines:
       - step:
           name: Deploy to Production
           deployment: Production
-          trigger: manual
           clone:
             enabled: false
           script:
@@ -58,7 +57,19 @@ pipelines:
                 LOCAL_PATH: 'build'
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-                DISTRIBUTION_ID: '123xyz'
+      - step:
+          name: Trigger AWS Cloudfront
+          deloyment: Production
+          clone:
+            enabled: false
+          script:
+            - pipe: atlassian/aws-cloudfront-invalidate:0.9.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                DISTRIBUTION_ID: 'E2AVF5RAAQE6KA'
+                PATHS: '/*'
+         
     MEGATON_CAMERA:
       - parallel:
         - step:
