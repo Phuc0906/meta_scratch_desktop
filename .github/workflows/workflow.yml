@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          node-version: '16'
       - uses: actions/setup-node@v2
       - name: Install Dependencies
-        run: npm install --save-dev
+        run: npm install 
       - name: Install VM
         run: npm install --save-dev 'scratch-vm@bitbucket:trinhcongson34/msk-scratch-vm#MEGATON-VM-FEATURE'
       - name: Build Website
